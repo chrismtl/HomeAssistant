@@ -2,8 +2,22 @@ cameras:
   wide_front:
     driver: imx708
     role: scene_monitor
+    display_name: Wide Front Camera
+    sensor_id: 0
     enabled: true
+    fps: 30
+    flip_method: 0
+    resolution:
+      width: 1920
+      height: 1080
   hq_front:
     driver: imx477
     role: identity_focus
+    display_name: HQ Front Camera
+    sensor_id: 1
     enabled: true
+    fps: 30
+    flip_method: 0
+    resolution:
+      width: 1920
+      height: 1080

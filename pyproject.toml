@@ -13,3 +13,8 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+markers = [
+    "hardware: tests that require physical Jetson hardware and peripherals",
+]
