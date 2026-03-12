@@ -3,14 +3,12 @@
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
 
 from src.platform.camera.config_loader import load_camera_configs
 from src.platform.camera.factory import create_camera
 
 
-def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Probe a configured Jetson camera.")
+def configure_parser(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--config", default="config/base/cameras.yaml", help="Path to the camera YAML config.")
     parser.add_argument("--camera", required=True, help="Camera key from the YAML config.")
     parser.add_argument(
@@ -24,13 +22,9 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Optional output path for a captured snapshot.",
     )
-    return parser
 
 
-def main() -> None:
-    parser = build_parser()
-    args = parser.parse_args()
-
+def run(args: argparse.Namespace) -> int:
     configs = load_camera_configs(args.config)
     if args.camera not in configs:
         available = ", ".join(sorted(configs))
@@ -66,7 +60,20 @@ def main() -> None:
         f"Read {args.frames} frames successfully from '{args.camera}'. "
         f"Last frame size: {last_frame.width}x{last_frame.height}"
     )
+    return 0
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Probe a configured Jetson camera.")
+    configure_parser(parser)
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    return run(args)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
