@@ -1,0 +1,9 @@
+cameras:
+  wide_front:
+    driver: imx708
+    role: scene_monitor
+    enabled: true
+  hq_front:
+    driver: imx477
+    role: identity_focus
+    enabled: true

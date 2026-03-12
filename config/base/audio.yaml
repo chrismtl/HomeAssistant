@@ -1,0 +1,5 @@
+audio:
+  microphone:
+    enabled: true
+  speaker:
+    enabled: true

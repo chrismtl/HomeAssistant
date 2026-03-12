@@ -1,0 +1,3 @@
+app:
+  name: home_assistant_device
+  environment: base

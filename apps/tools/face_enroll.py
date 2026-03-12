@@ -1,0 +1,1 @@
+"""Standalone face enrollment tool."""

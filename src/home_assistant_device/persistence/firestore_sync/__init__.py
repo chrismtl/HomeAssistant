@@ -1,0 +1,1 @@
+"""Optional Firestore synchronization adapters."""

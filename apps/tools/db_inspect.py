@@ -1,0 +1,1 @@
+"""Standalone database inspection tool."""

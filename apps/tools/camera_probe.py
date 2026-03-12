@@ -1,0 +1,1 @@
+"""Standalone camera validation tool."""

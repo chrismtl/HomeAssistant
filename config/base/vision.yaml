@@ -1,0 +1,5 @@
+vision:
+  face_detection:
+    enabled: true
+  face_recognition:
+    enabled: true
